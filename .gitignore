@@ -1,0 +1,14 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node modules
+node_modules/
+
+# Tailwind CSS
+static/output.css
+
+# IDE vs code stuff
+.vscode/
+Thumbs.db
