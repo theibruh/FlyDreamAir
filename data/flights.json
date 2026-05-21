@@ -1,0 +1,67 @@
+[
+  {
+    "flight_id": "FDA101",
+    "origin": "SYD",
+    "destination": "MEL",
+    "origin_city": "Sydney",
+    "destination_city": "Melbourne",
+    "date": "2026-05-22",
+    "departure_time": "08:00",
+    "arrival_time": "09:30",
+    "price": 159.00,
+    "seats_available": 42,
+    "aircraft": "Boeing 737-800"
+  },
+  {
+    "flight_id": "FDA102",
+    "origin": "SYD",
+    "destination": "MEL",
+    "origin_city": "Sydney",
+    "destination_city": "Melbourne",
+    "date": "2026-05-22",
+    "departure_time": "12:00",
+    "arrival_time": "13:30",
+    "price": 189.00,
+    "seats_available": 28,
+    "aircraft": "Airbus A320"
+  },
+  {
+    "flight_id": "FDA201",
+    "origin": "SYD",
+    "destination": "BNE",
+    "origin_city": "Sydney",
+    "destination_city": "Brisbane",
+    "date": "2026-05-22",
+    "departure_time": "07:30",
+    "arrival_time": "09:00",
+    "price": 129.00,
+    "seats_available": 56,
+    "aircraft": "Boeing 737-800"
+  },
+  {
+    "flight_id": "FDA301",
+    "origin": "MEL",
+    "destination": "SYD",
+    "origin_city": "Melbourne",
+    "destination_city": "Sydney",
+    "date": "2026-05-22",
+    "departure_time": "09:00",
+    "arrival_time": "10:30",
+    "price": 169.00,
+    "seats_available": 38,
+    "aircraft": "Boeing 737-800"
+  },
+  {
+    "flight_id": "FDA401",
+    "origin": "SYD",
+    "destination": "PER",
+    "origin_city": "Sydney",
+    "destination_city": "Perth",
+    "date": "2026-05-22",
+    "departure_time": "10:00",
+    "arrival_time": "15:00",
+    "price": 389.00,
+    "seats_available": 45,
+    "aircraft": "Boeing 787-9"
+  }
+]

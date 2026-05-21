@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyDreamAir</title>
+    <!-- hard coded CSS link -->
+    <link href="{{url_for('static', filename='output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-8">
+    
+    <!-- Header -->
+    <header class="text-center mb-12">
+        <h1 class="text-6xl font-bold text-dreamAir-purple mb-2">FlyDreamAir</h1>
+        <p class="text-2xl text-dreamAir-cream">Your Journey Begins Here</p>
+    </header>
+
+    <!-- Available Flights -->
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Available Flights</h2>
+        
+        <div class="space-y-4">
+            <!-- Loop through flights and display each flight's details -->
+            {% for flight in flights %}
+            <div class="bg-gray-800 rounded-lg p-6 border border-dreamAir-purple">
+                <!-- Flight Details -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-dreamAir-purple font-bold text-lg">{{ flight.flight_id }}</span>
+                        <p class="text-xl mt-2">{{ flight.origin_city }} → {{ flight.destination_city }}</p>
+                        <p class="text-gray-400">{{ flight.departure_time }} - {{ flight.arrival_time }}</p>
+                    </div>
+                    <!-- Flight Price and Availability section -->
+                    <div class="text-right">
+                        <p class="text-3xl font-bold text-dreamAir-cream">${{ flight.price }}</p>
+                        <p class="text-sm text-gray-400">{{ flight.seats_available }} seats left</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
