@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Flight {{ flight.flight_id }} - FlyDreamAir</title>
+    <link href="{{url_for('static', filename='output.css') }}" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen p-8">
+    
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-dreamAir-purple mb-2">Complete Your Booking</h1>
+      <p class="text-gray-400">Flight {{ flight.flight_id }} - {{ flight.origin_city }} → {{ flight.destination_city }}</p>
+    </header>
+
+    <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8">
+      
+      <!-- Booking form - left side -->
+      <div class="col-span-2">
+        <div class="bg-gray-800 rounded-lg p-8 border border-dreamAir-purple">
+          <h2 class="text-2xl font-bold mb-6">Passenger Information</h2>
+          
+          <form method="POST" action="/confirm_booking" class="space-y-6">
+            <!-- Hidden field to pass flight ID -->
+            <input type="hidden" name="flight_id" value="{{ flight.flight_id }}">
+            
+            <!-- First Name -->
+            <div>
+              <label class="block text-sm font-medium mb-2">First Name</label>
+              <input type="text" name="first_name" required 
+                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+            </div>
+
+            <!-- Last Name -->
+            <div>
+              <label class="block text-sm font-medium mb-2">Last Name</label>
+              <input type="text" name="last_name" required
+                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-sm font-medium mb-2">Email</label>
+              <input type="email" name="email" required
+                     placeholder="your.email@example.com"
+                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label class="block text-sm font-medium mb-2">Phone Number</label>
+              <input type="tel" name="phone" required
+                     placeholder="+61 400 000 000"
+                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+            </div>
+
+            <!-- Number of Passengers -->
+            <div>
+              <label class="block text-sm font-medium mb-2">Number of Passengers</label>
+              <select name="passengers" required
+                      class="w-full px-4 py-3 pr-8 bg-gray-700 border border-gray-600 rounded-lg text-white">
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" 
+                    class="w-full bg-dreamAir-purple hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-lg transition">
+              Confirm Booking
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Flight summary - right side -->
+      <div class="col-span-1">
+        <div class="bg-gray-800 rounded-lg p-6 border border-dreamAir-purple sticky top-8">
+          <h3 class="text-xl font-bold mb-4 text-dreamAir-purple">Flight Summary</h3>
+          
+          <div class="space-y-3 text-sm">
+            <div>
+              <span class="text-gray-400">Flight:</span>
+              <span class="float-right font-bold">{{ flight.flight_id }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Route:</span>
+              <span class="float-right">{{ flight.origin }} → {{ flight.destination }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Date:</span>
+              <span class="float-right">{{ flight.date }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Departure:</span>
+              <span class="float-right">{{ flight.departure_time }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Arrival:</span>
+              <span class="float-right">{{ flight.arrival_time }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Aircraft:</span>
+              <span class="float-right">{{ flight.aircraft }}</span>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-3 mt-3">
+              <span class="text-gray-400">Price per person:</span>
+              <span class="float-right text-2xl font-bold text-dreamAir-cream">${{ flight.price }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

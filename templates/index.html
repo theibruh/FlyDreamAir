@@ -110,12 +110,12 @@
             </div>
             <!-- Right side: pricing and seat availability -->
             <div class="text-right">
-              <p class="text-3xl font-bold text-dreamAir-cream">
-                ${{ flight.price }}
-              </p>
-              <p class="text-sm text-gray-400">
-                {{ flight.seats_available }} seats left
-              </p>
+              <p class="text-3xl font-bold text-dreamAir-cream">${{ flight.price }}</p>
+              <p class="text-sm text-gray-400">{{ flight.seats_available }} seats left</p>
+              <a href="/book/{{ flight.flight_id }}" 
+                 class="inline-block mt-4 bg-dreamAir-purple hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-lg transition">
+                Book Now
+              </a>
             </div>
           </div>
         </div>

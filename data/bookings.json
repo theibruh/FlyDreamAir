@@ -1,1 +1,110 @@
-[]
+[
+  {
+    "booking_id": "FDATLA4201",
+    "flight_id": "FDA101",
+    "flight_details": {
+      "flight_id": "FDA101",
+      "origin": "SYD",
+      "destination": "MEL",
+      "origin_city": "Sydney",
+      "destination_city": "Melbourne",
+      "date": "2026-05-22",
+      "departure_time": "08:00",
+      "arrival_time": "09:30",
+      "price": 159.0,
+      "seats_available": 42,
+      "aircraft": "Boeing 737-800"
+    },
+    "passenger": {
+      "first_name": "Ibrahim",
+      "last_name": "Sheikh",
+      "email": "theibruh1234@gmail.com",
+      "phone": "0426504066"
+    },
+    "passengers_count": 1,
+    "total_price": 159.0,
+    "booking_date": "2026-05-23 14:42:08",
+    "status": "confirmed"
+  },
+  {
+    "booking_id": "FDAGAS4308",
+    "flight_id": "FDA104",
+    "flight_details": {
+      "flight_id": "FDA104",
+      "origin": "SYD",
+      "destination": "MEL",
+      "origin_city": "Sydney",
+      "destination_city": "Melbourne",
+      "date": "2026-05-24",
+      "departure_time": "10:00",
+      "arrival_time": "11:30",
+      "price": 179.0,
+      "seats_available": 35,
+      "aircraft": "Airbus A320"
+    },
+    "passenger": {
+      "first_name": "Ibrahim",
+      "last_name": "Sheikh",
+      "email": "theibruh1234@gmail.com",
+      "phone": "0426504066"
+    },
+    "passengers_count": 1,
+    "total_price": 179.0,
+    "booking_date": "2026-05-23 14:43:52",
+    "status": "confirmed"
+  },
+  {
+    "booking_id": "FDAFWE0644",
+    "flight_id": "FDA104",
+    "flight_details": {
+      "flight_id": "FDA104",
+      "origin": "SYD",
+      "destination": "MEL",
+      "origin_city": "Sydney",
+      "destination_city": "Melbourne",
+      "date": "2026-05-24",
+      "departure_time": "10:00",
+      "arrival_time": "11:30",
+      "price": 179.0,
+      "seats_available": 35,
+      "aircraft": "Airbus A320"
+    },
+    "passenger": {
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "Jane@gmail.com",
+      "phone": "1111111111"
+    },
+    "passengers_count": 3,
+    "total_price": 537.0,
+    "booking_date": "2026-05-23 14:46:26",
+    "status": "confirmed"
+  },
+  {
+    "booking_id": "FDAEHI3473",
+    "flight_id": "FDA401",
+    "flight_details": {
+      "flight_id": "FDA401",
+      "origin": "SYD",
+      "destination": "PER",
+      "origin_city": "Sydney",
+      "destination_city": "Perth",
+      "date": "2026-05-22",
+      "departure_time": "10:00",
+      "arrival_time": "15:00",
+      "price": 389.0,
+      "seats_available": 45,
+      "aircraft": "Boeing 787-9"
+    },
+    "passenger": {
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane@gmail.com",
+      "phone": "1234567890"
+    },
+    "passengers_count": 1,
+    "total_price": 389.0,
+    "booking_date": "2026-05-23 15:01:02",
+    "status": "confirmed"
+  }
+]

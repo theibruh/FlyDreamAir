@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmed - FlyDreamAir</title>
+    <link href="{{url_for('static', filename='output.css') }}" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen p-8">
+    
+    <header class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-green-500 rounded-full mb-4">
+        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold text-dreamAir-purple mb-2">Booking Confirmed!</h1>
+      <p class="text-gray-400">Your flight has been successfully booked</p>
+    </header>
+
+    <div class="max-w-3xl mx-auto">
+      
+      <!-- Booking Reference -->
+      <div class="bg-gray-800 rounded-lg p-8 border border-dreamAir-purple mb-8 text-center">
+        <p class="text-sm text-gray-400 mb-2">Booking Reference</p>
+        <p class="text-5xl font-bold text-dreamAir-purple tracking-wider mb-3">{{ booking.booking_id }}</p>
+        <p class="text-sm text-gray-500">Please save this reference number</p>
+      </div>
+
+      <!-- Booking Details -->
+      <div class="bg-gray-800 rounded-lg p-8 border border-gray-700">
+        <h2 class="text-2xl font-bold mb-6 text-dreamAir-purple">Booking Details</h2>
+        
+        <!-- Flight Info -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold mb-3">Flight Information</h3>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span class="text-gray-400">Flight Number:</span>
+              <span class="float-right font-bold">{{ booking.flight_details.flight_id }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Aircraft:</span>
+              <span class="float-right">{{ booking.flight_details.aircraft }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Route:</span>
+              <span class="float-right">{{ booking.flight_details.origin }} → {{ booking.flight_details.destination }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Date:</span>
+              <span class="float-right">{{ booking.flight_details.date }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Departure:</span>
+              <span class="float-right">{{ booking.flight_details.departure_time }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Arrival:</span>
+              <span class="float-right">{{ booking.flight_details.arrival_time }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passenger Info -->
+        <div class="mb-6 pt-6 border-t border-gray-700">
+          <h3 class="text-lg font-bold mb-3">Passenger Information</h3>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span class="text-gray-400">Name:</span>
+              <span class="float-right">{{ booking.passenger.first_name }} {{ booking.passenger.last_name }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Passengers:</span>
+              <span class="float-right">{{ booking.passengers_count }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Email:</span>
+              <span class="float-right">{{ booking.passenger.email }}</span>
+            </div>
+            <div>
+              <span class="text-gray-400">Phone:</span>
+              <span class="float-right">{{ booking.passenger.phone }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="pt-6 border-t border-gray-700">
+          <div class="flex justify-between items-center mb-2 text-sm">
+            <span class="text-gray-400">Price per passenger:</span>
+            <span>${{ "%.2f"|format(booking.flight_details.price) }}</span>
+          </div>
+          <div class="flex justify-between items-center mb-4 text-sm">
+            <span class="text-gray-400">Number of passengers:</span>
+            <span>× {{ booking.passengers_count }}</span>
+          </div>
+          <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+            <span class="text-xl font-bold">Total Amount:</span>
+            <span class="text-3xl font-bold text-dreamAir-cream">${{ "%.2f"|format(booking.total_price) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="mt-8 text-center">
+        <a href="/" class="inline-block bg-dreamAir-purple hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-lg transition">
+          Book Another Flight
+        </a>
+      </div>
+
+    </div>
+
+  </body>
+</html>
