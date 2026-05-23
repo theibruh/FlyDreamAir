@@ -26,6 +26,32 @@
     "aircraft": "Airbus A320"
   },
   {
+    "flight_id": "FDA103",
+    "origin": "SYD",
+    "destination": "MEL",
+    "origin_city": "Sydney",
+    "destination_city": "Melbourne",
+    "date": "2026-05-23",
+    "departure_time": "08:00",
+    "arrival_time": "09:30",
+    "price": 159.00,
+    "seats_available": 50,
+    "aircraft": "Boeing 737-800"
+  },
+  {
+    "flight_id": "FDA104",
+    "origin": "SYD",
+    "destination": "MEL",
+    "origin_city": "Sydney",
+    "destination_city": "Melbourne",
+    "date": "2026-05-24",
+    "departure_time": "10:00",
+    "arrival_time": "11:30",
+    "price": 179.00,
+    "seats_available": 35,
+    "aircraft": "Airbus A320"
+  },
+  {
     "flight_id": "FDA201",
     "origin": "SYD",
     "destination": "BNE",
@@ -37,6 +63,19 @@
     "price": 129.00,
     "seats_available": 56,
     "aircraft": "Boeing 737-800"
+  },
+  {
+    "flight_id": "FDA202",
+    "origin": "SYD",
+    "destination": "BNE",
+    "origin_city": "Sydney",
+    "destination_city": "Brisbane",
+    "date": "2026-05-23",
+    "departure_time": "09:00",
+    "arrival_time": "10:30",
+    "price": 139.00,
+    "seats_available": 44,
+    "aircraft": "Airbus A320"
   },
   {
     "flight_id": "FDA301",
@@ -52,6 +91,19 @@
     "aircraft": "Boeing 737-800"
   },
   {
+    "flight_id": "FDA302",
+    "origin": "MEL",
+    "destination": "SYD",
+    "origin_city": "Melbourne",
+    "destination_city": "Sydney",
+    "date": "2026-05-23",
+    "departure_time": "11:00",
+    "arrival_time": "12:30",
+    "price": 175.00,
+    "seats_available": 40,
+    "aircraft": "Airbus A320"
+  },
+  {
     "flight_id": "FDA401",
     "origin": "SYD",
     "destination": "PER",
@@ -62,6 +114,19 @@
     "arrival_time": "15:00",
     "price": 389.00,
     "seats_available": 45,
+    "aircraft": "Boeing 787-9"
+  },
+  {
+    "flight_id": "FDA402",
+    "origin": "SYD",
+    "destination": "PER",
+    "origin_city": "Sydney",
+    "destination_city": "Perth",
+    "date": "2026-05-24",
+    "departure_time": "14:00",
+    "arrival_time": "19:00",
+    "price": 399.00,
+    "seats_available": 52,
     "aircraft": "Boeing 787-9"
   }
 ]

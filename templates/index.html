@@ -1,45 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlyDreamAir</title>
-    <!-- hard coded CSS link -->
-    <link href="{{url_for('static', filename='output.css') }}" rel="stylesheet">
-</head>
-<body class="bg-gray-900 text-white min-h-screen p-8">
-    
-    <!-- Header -->
+    <!-- Tailwind CSS compiled output -->
+    <link
+      href="{{url_for('static', filename='output.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen p-8">
+    <!-- Page header with branding -->
     <header class="text-center mb-12">
-        <h1 class="text-6xl font-bold text-dreamAir-purple mb-2">FlyDreamAir</h1>
-        <p class="text-2xl text-dreamAir-cream">Your Journey Begins Here</p>
+      <h1 class="text-6xl font-bold text-dreamAir-purple mb-2">FlyDreamAir</h1>
+      <p class="text-2xl text-dreamAir-cream">Your Journey Begins Here</p>
     </header>
 
-    <!-- Available Flights -->
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6">Available Flights</h2>
-        
-        <div class="space-y-4">
-            <!-- Loop through flights and display each flight's details -->
-            {% for flight in flights %}
-            <div class="bg-gray-800 rounded-lg p-6 border border-dreamAir-purple">
-                <!-- Flight Details -->
-                <div class="flex justify-between items-center">
-                    <div>
-                        <span class="text-dreamAir-purple font-bold text-lg">{{ flight.flight_id }}</span>
-                        <p class="text-xl mt-2">{{ flight.origin_city }} → {{ flight.destination_city }}</p>
-                        <p class="text-gray-400">{{ flight.departure_time }} - {{ flight.arrival_time }}</p>
-                    </div>
-                    <!-- Flight Price and Availability section -->
-                    <div class="text-right">
-                        <p class="text-3xl font-bold text-dreamAir-cream">${{ flight.price }}</p>
-                        <p class="text-sm text-gray-400">{{ flight.seats_available }} seats left</p>
-                    </div>
-                </div>
+    <!-- Search form container -->
+    <div class="max-w-5xl mx-auto mb-12">
+      <div class="bg-gray-800 rounded-lg p-8 border border-dreamAir-purple">
+        <h2 class="text-2xl font-bold mb-6 text-center">Search Flights</h2>
+
+        <!-- Form submits to /search route via POST -->
+        <form method="POST" action="/search">
+          <div class="grid grid-cols-12 gap-4 items-center">
+            <!-- From label and dropdown -->
+            <div class="col-span-3">
+              <span class="text-sm font-medium mr-2">From:</span>
+              <select
+                name="origin"
+                required
+                class="w-full mt-2 px-4 py-3 pr-8 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              >
+                <option value="">Select Origin</option>
+                <option value="SYD">Sydney (SYD)</option>
+                <option value="MEL">Melbourne (MEL)</option>
+                <option value="BNE">Brisbane (BNE)</option>
+                <option value="PER">Perth (PER)</option>
+              </select>
             </div>
-            {% endfor %}
-        </div>
+
+            <!-- To label and dropdown -->
+            <div class="col-span-3">
+              <span class="text-sm font-medium mr-2">To:</span>
+              <select
+                name="destination"
+                required
+                class="w-full mt-2 px-4 py-3 pr-8 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              >
+                <option value="">Select Destination</option>
+                <option value="SYD">Sydney (SYD)</option>
+                <option value="MEL">Melbourne (MEL)</option>
+                <option value="BNE">Brisbane (BNE)</option>
+                <option value="PER">Perth (PER)</option>
+              </select>
+            </div>
+
+            <!-- Date label and picker -->
+            <div class="col-span-4">
+              <span class="text-sm font-medium mr-2">Date:</span>
+              <input
+                type="date"
+                name="date"
+                required
+                min="2026-05-22"
+                class="w-full mt-2 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              />
+            </div>
+
+            <!-- Search button -->
+            <div class="col-span-2">
+              <button
+                type="submit"
+                class="w-full mt-7 bg-dreamAir-purple hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
-</body>
+    <!-- Search results section - only displays after search -->
+    {% if search_performed %}
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Search Results</h2>
+
+      <!-- Display flights if any match the search -->
+      {% if flights %}
+      <div class="space-y-4">
+        <!-- Loop through each matching flight -->
+        {% for flight in flights %}
+        <div class="bg-gray-800 rounded-lg p-6 border border-dreamAir-purple">
+          <div class="flex justify-between items-center">
+            <!-- Left side: flight details -->
+            <div>
+              <span class="text-dreamAir-purple font-bold text-lg"
+                >{{ flight.flight_id }}</span
+              >
+              <p class="text-xl mt-2">
+                {{ flight.origin_city }} → {{ flight.destination_city }}
+              </p>
+              <p class="text-gray-400">
+                {{ flight.departure_time }} - {{ flight.arrival_time }}
+              </p>
+            </div>
+            <!-- Right side: pricing and seat availability -->
+            <div class="text-right">
+              <p class="text-3xl font-bold text-dreamAir-cream">
+                ${{ flight.price }}
+              </p>
+              <p class="text-sm text-gray-400">
+                {{ flight.seats_available }} seats left
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- No results message if search returns empty -->
+      {% else %}
+      <div
+        class="bg-gray-800 rounded-lg p-12 text-center border border-gray-600"
+      >
+        <p class="text-2xl text-gray-400">No flights found for your search.</p>
+        <p class="text-gray-500 mt-2">Try different dates or destinations.</p>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </body>
 </html>
